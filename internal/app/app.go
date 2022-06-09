@@ -41,7 +41,7 @@ func NewApp(ctx context.Context, conf Config) (*ApplicationContext, error) {
 		return nil, err
 	}
 	proxy := client.NewProxyClient(client0, conf.ClientProxyUrl, log.InfoFields)
-	sqlLayer := userProxy.NewSqlLayerAdapter(proxy)
+	sqlLayer := userProxy.NewSqlLayerAdapter(proxy, q.BuildParam)
 	//userRepository := repository.NewUserAdapter(db)
 	userService := service.NewUserService(proxy, sqlLayer)
 	userHandler := handler.NewUserHandler(userSearchBuilder.Search, userService, logError)

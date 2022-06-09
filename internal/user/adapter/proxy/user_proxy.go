@@ -11,14 +11,16 @@ const (
 	tableUsers = "users"
 )
 
-func NewSqlLayerAdapter(proxy sql.Proxy) *SqlLayerAdapter {
+func NewSqlLayerAdapter(proxy sql.Proxy, buildParam func(i int) string) *SqlLayerAdapter {
 	return &SqlLayerAdapter{
-		proxy: proxy,
+		proxy:      proxy,
+		BuildParam: buildParam,
 	}
 }
 
 type SqlLayerAdapter struct {
-	proxy sql.Proxy
+	proxy      sql.Proxy
+	BuildParam func(i int) string
 }
 
 func (r *SqlLayerAdapter) Load(ctx context.Context, id string) (*User, error) {
