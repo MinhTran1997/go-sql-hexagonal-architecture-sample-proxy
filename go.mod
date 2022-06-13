@@ -8,7 +8,7 @@ require (
 	github.com/core-go/log v0.0.8
 	github.com/core-go/search v0.2.5
 	github.com/core-go/service v0.2.1
-	github.com/core-go/sql v0.3.1
+	github.com/core-go/sql v0.2.40
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/gorilla/mux v1.8.0
 	github.com/kr/pretty v0.3.0 // indirect
